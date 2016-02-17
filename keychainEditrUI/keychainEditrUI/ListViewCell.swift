@@ -10,15 +10,21 @@ import UIKit
 
 class ListViewCell: UITableViewCell {
 
+    @IBOutlet weak var accountName: UILabel!
+    @IBOutlet weak var serviceName: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+    }
+    
+    func configureListCell(listContentsDict: Dictionary<String, String>){
+        if let accName = listContentsDict["accName"], svcName = listContentsDict["svcName"]{
+            accountName.text = accName
+            serviceName.text = svcName
+        }
+        print("Either accName or svcName keys not present while configuring list view cell")
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+   
 
 }

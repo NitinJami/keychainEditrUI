@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FilterDumpVC: UIViewController {
+class FilterToDumpVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

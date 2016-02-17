@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9493918B1C74CEEA00F84EEB /* keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9493918A1C74CEEA00F84EEB /* keychain.swift */; };
+		9493918D1C74E72700F84EEB /* keychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9493918C1C74E72700F84EEB /* keychainTests.swift */; };
+		9493918E1C74EC7000F84EEB /* keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9493918A1C74CEEA00F84EEB /* keychain.swift */; };
 		94C4D91E1C73AF62000D81AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C4D91D1C73AF62000D81AD /* AppDelegate.swift */; };
 		94C4D9201C73AF62000D81AD /* FilterToDumpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C4D91F1C73AF62000D81AD /* FilterToDumpVC.swift */; };
 		94C4D9231C73AF62000D81AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94C4D9211C73AF62000D81AD /* Main.storyboard */; };
@@ -16,8 +19,8 @@
 		94C4D93E1C73AF62000D81AD /* keychainEditrUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C4D93D1C73AF62000D81AD /* keychainEditrUIUITests.swift */; };
 		94C4D94C1C73AF86000D81AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C4D94B1C73AF86000D81AD /* Foundation.framework */; };
 		94C4D94E1C73AF8D000D81AD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C4D94D1C73AF8D000D81AD /* Security.framework */; };
-		CBD781461C740DB80025BBF0 /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD781451C740DB80025BBF0 /* ListViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		CBD781481C7434930025BBF0 /* ListViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD781471C7434930025BBF0 /* ListViewVC.swift */; settings = {ASSET_TAGS = (); }; };
+		CBD781461C740DB80025BBF0 /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD781451C740DB80025BBF0 /* ListViewCell.swift */; };
+		CBD781481C7434930025BBF0 /* ListViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD781471C7434930025BBF0 /* ListViewVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9493918A1C74CEEA00F84EEB /* keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = keychain.swift; sourceTree = "<group>"; };
+		9493918C1C74E72700F84EEB /* keychainTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = keychainTests.swift; sourceTree = "<group>"; };
 		94C4D91A1C73AF61000D81AD /* keychainEditrUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = keychainEditrUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C4D91D1C73AF62000D81AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94C4D91F1C73AF62000D81AD /* FilterToDumpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterToDumpVC.swift; sourceTree = "<group>"; };
@@ -107,6 +112,7 @@
 		94C4D91C1C73AF61000D81AD /* keychainEditrUI */ = {
 			isa = PBXGroup;
 			children = (
+				9493918A1C74CEEA00F84EEB /* keychain.swift */,
 				94C4D91D1C73AF62000D81AD /* AppDelegate.swift */,
 				94C4D91F1C73AF62000D81AD /* FilterToDumpVC.swift */,
 				94C4D9211C73AF62000D81AD /* Main.storyboard */,
@@ -125,6 +131,7 @@
 			children = (
 				94C4D9321C73AF62000D81AD /* keychainEditrUITests.swift */,
 				94C4D9341C73AF62000D81AD /* Info.plist */,
+				9493918C1C74E72700F84EEB /* keychainTests.swift */,
 			);
 			path = keychainEditrUITests;
 			sourceTree = "<group>";
@@ -289,6 +296,7 @@
 				CBD781461C740DB80025BBF0 /* ListViewCell.swift in Sources */,
 				94C4D91E1C73AF62000D81AD /* AppDelegate.swift in Sources */,
 				CBD781481C7434930025BBF0 /* ListViewVC.swift in Sources */,
+				9493918B1C74CEEA00F84EEB /* keychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +305,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				94C4D9331C73AF62000D81AD /* keychainEditrUITests.swift in Sources */,
+				9493918E1C74EC7000F84EEB /* keychain.swift in Sources */,
+				9493918D1C74E72700F84EEB /* keychainTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +442,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = keychainEditrUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -447,6 +458,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = keychainEditrUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

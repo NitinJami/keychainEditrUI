@@ -9,7 +9,7 @@
 import Foundation
 import Security
 
-class Keychain: NSObject {
+public class Keychain: NSObject {
     
     /*
     
@@ -59,6 +59,9 @@ class Keychain: NSObject {
         case -34018:
             readableString = "Entitlement not found. Please refer README."
             break
+        case -1:
+            readableString = "Error in SecAccessControl!"
+            break
         default:
             readableString = "Unhandled Error: Please contact developer to report this error. Error code: \(status)"
             break
@@ -78,7 +81,7 @@ class Keychain: NSObject {
         PARAMS: Get data from UI textfields, default values are
         used, if no items are provided via UI textfields.
     
-        RETURN: A human readable string corresponding to the OSStatus code.
+        RETURN: two-tuple (osstatus, human readable status)
     
     */
     
@@ -86,7 +89,7 @@ class Keychain: NSObject {
                  service: String = "testService",
                  accessibleConstant: String = kSecAttrAccessibleAlways as String,
                  data: NSData = "test data".dataUsingEncoding(NSUTF8StringEncoding)!
-                ) -> String {
+                ) -> (status: OSStatus, statusString: String) {
         
         // TODO: I still don't understand how to use the error value from the 
         // SecAccessControlCreateWithFlags(). For now, I will use -1 as an 
@@ -113,8 +116,15 @@ class Keychain: NSObject {
                     kSecValueData as String     :   data
                     ] as NSDictionary
                 
-                
+                // This is a caution step, to avoid errSecDuplicateItem when 
+                // adding an item using SecItemAdd(). Since, this whole method 
+                // is for testing purposes there may be cases that the same 
+                // item would already exist.
                 status = SecItemDelete(query)
+                
+                if status != errSecSuccess {
+                    NSLog("[addItem::SecItemDelete] - \(osstatusToHumanReadable(status))")
+                }
                 
                 // I really don't care about the second parameter which returns a 
                 // pointer to the newly created item.
@@ -123,28 +133,39 @@ class Keychain: NSObject {
                 status = SecItemAdd(query, nil)
                 
                 if status != errSecSuccess {
-                    print("[addItem::SecItemAdd] \(osstatusToHumanReadable(status))")
+                    NSLog("[addItem::SecItemAdd] \(osstatusToHumanReadable(status))")
                 }
         } else {
-            print("[SecAccessControl] error!")
+            NSLog("[addItem::SecAccessControl] - \(osstatusToHumanReadable(status))")
         }
-        
-        return osstatusToHumanReadable(status)
+        return (status, osstatusToHumanReadable(status))
     }
     
     /*
-    Dump all items.
-    RETURN: Array of dictionaries containing keychain items.
+        Function to dump all items from the keychain.
+    
+        PARAMS: None.
+    
+        RETURN: three tuple (Array of dictionaries items, osstatus, human readable status)
     */
     
-    func fetchItemAll() -> String {
+    func fetchItemsAll() -> (items: [Dictionary<String, AnyObject>], status: OSStatus, statusString: String) {
         
         var query: CFDictionaryRef!
         var returnedItemsInGenericArray: AnyObject? = nil
-        var finalArray = [Dictionary<String, AnyObject>]()
+        var finalArrayOfKeychainItems = [Dictionary<String, AnyObject>]()
         var status: OSStatus!
         
+        // TODO: Add new kSecClass values here to dump other class items
+        // such as certificates, Internet Passwords, etc.
         let secClasses: [NSString]! = [kSecClassGenericPassword]
+        
+        // When a device is locked, I should be able to dump items that 
+        // are accessible such as items of type kSecAttrAccessibleAlways 
+        // and kSecAttrAccessibleAfterFirstUnlock. So dump items based
+        // on thier contants, and append them to a final array. Silenty 
+        // ignore items that are not accessible. 
+        // Based on issue: https://github.com/NitinJami/keychaineditor/issues/9
         let accessiblityConstants: [NSString]! = [kSecAttrAccessibleAfterFirstUnlock,
             kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly,
             kSecAttrAccessibleAlways,
@@ -153,13 +174,13 @@ class Keychain: NSObject {
             kSecAttrAccessibleWhenUnlocked,
             kSecAttrAccessibleWhenUnlockedThisDeviceOnly]
         
+        // Iterate over the kSecClass and kSecAttrAccessible, and the add 
+        // returned generic array to a final array.
         for eachKSecClass in secClasses {
             for eachConstant in accessiblityConstants {
-                
                 query = [
                     kSecClass as String             :   eachKSecClass,
-                    //kSecAttrAccessible as String    :   eachConstant,
-                    //kSecAttrAccount as String       :   "testAccount",
+                    kSecAttrAccessible as String    :   eachConstant,
                     kSecMatchLimit as String        :   kSecMatchLimitAll as String,
                     kSecReturnAttributes as String  :   kCFBooleanTrue as Bool,
                     kSecReturnData as String        :   kCFBooleanTrue as Bool
@@ -168,17 +189,19 @@ class Keychain: NSObject {
                 status = SecItemCopyMatching(query, &returnedItemsInGenericArray)
                 
                 if status == errSecSuccess {
-                    
-                    finalArray =  finalArray + ((returnedItemsInGenericArray as! NSArray) as! [Dictionary<String, AnyObject>])
+                    finalArrayOfKeychainItems =  finalArrayOfKeychainItems
+                        // first unwrap and cast generice array to type NSArray.
+                        // and then, cast it to Array of dictionaries.
+                        + ((returnedItemsInGenericArray as! NSArray) as! [Dictionary<String, AnyObject>])
                 }
                 else {
-                    print("[fetchItemAll::\(eachConstant)] \(osstatusToHumanReadable(status))")
+                    NSLog("[fetchItemAll::\(eachConstant)] \(osstatusToHumanReadable(status))")
                 }
-                break
             }
         }
         
-        for eachDict in finalArray {
+        /*
+        for eachDict in finalArrayOfKeychainItems {
             print(eachDict[kSecAttrAccount as String] as! String)
             print(eachDict[kSecAttrService as String] as! String)
             //let sacObj = eachDict[kSecAttrAccessControl as String] as! SecAccessControlRef
@@ -188,8 +211,18 @@ class Keychain: NSObject {
             //print(sacObj)
             //print(SecAccessControlCreateFlags.UserPresence)
         }
+        */
         
-        return osstatusToHumanReadable(status)
+        // The value of status is not really the actual status that I like to 
+        // have. The status varies according to constant that I am dumping with.
+        // Hence, if the final array contains at least one value, then I will consider
+        // it as a success. Or else, just return the last status value.
+        
+        if (finalArrayOfKeychainItems.count >= 1) {
+            status = errSecSuccess
+        }
+        
+        return (finalArrayOfKeychainItems, status, osstatusToHumanReadable(status))
     }
     
     /*

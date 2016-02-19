@@ -21,8 +21,10 @@ class ListViewCell: UITableViewCell {
         if let accName = listContentsDict["accName"], svcName = listContentsDict["svcName"]{
             accountName.text = accName
             serviceName.text = svcName
+        }else{
+            print("Either accName or svcName keys not present while configuring list view cell")
         }
-        print("Either accName or svcName keys not present while configuring list view cell")
+        
     }
 
    

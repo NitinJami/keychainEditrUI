@@ -12,15 +12,16 @@
 		9493918E1C74EC7000F84EEB /* keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9493918A1C74CEEA00F84EEB /* keychain.swift */; };
 		94C4D91E1C73AF62000D81AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C4D91D1C73AF62000D81AD /* AppDelegate.swift */; };
 		94C4D9201C73AF62000D81AD /* FilterToDumpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C4D91F1C73AF62000D81AD /* FilterToDumpVC.swift */; };
-		94C4D9231C73AF62000D81AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94C4D9211C73AF62000D81AD /* Main.storyboard */; };
 		94C4D9251C73AF62000D81AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94C4D9241C73AF62000D81AD /* Assets.xcassets */; };
 		94C4D9281C73AF62000D81AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94C4D9261C73AF62000D81AD /* LaunchScreen.storyboard */; };
 		94C4D9331C73AF62000D81AD /* keychainEditrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C4D9321C73AF62000D81AD /* keychainEditrUITests.swift */; };
 		94C4D93E1C73AF62000D81AD /* keychainEditrUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C4D93D1C73AF62000D81AD /* keychainEditrUIUITests.swift */; };
 		94C4D94C1C73AF86000D81AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C4D94B1C73AF86000D81AD /* Foundation.framework */; };
 		94C4D94E1C73AF8D000D81AD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C4D94D1C73AF8D000D81AD /* Security.framework */; };
+		CB3B784B1C7584A20059B5C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB3B78491C7584A20059B5C8 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		CBD781461C740DB80025BBF0 /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD781451C740DB80025BBF0 /* ListViewCell.swift */; };
 		CBD781481C7434930025BBF0 /* ListViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD781471C7434930025BBF0 /* ListViewVC.swift */; };
+		CBD7814A1C756D0B0025BBF0 /* DetailViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD781491C756D0B0025BBF0 /* DetailViewVC.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +47,6 @@
 		94C4D91A1C73AF61000D81AD /* keychainEditrUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = keychainEditrUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C4D91D1C73AF62000D81AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94C4D91F1C73AF62000D81AD /* FilterToDumpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterToDumpVC.swift; sourceTree = "<group>"; };
-		94C4D9221C73AF62000D81AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		94C4D9241C73AF62000D81AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94C4D9271C73AF62000D81AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94C4D9291C73AF62000D81AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,8 +58,10 @@
 		94C4D93F1C73AF62000D81AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94C4D94B1C73AF86000D81AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		94C4D94D1C73AF8D000D81AD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CB3B784A1C7584A20059B5C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CBD781451C740DB80025BBF0 /* ListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
 		CBD781471C7434930025BBF0 /* ListViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewVC.swift; sourceTree = "<group>"; };
+		CBD781491C756D0B0025BBF0 /* DetailViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,12 +114,11 @@
 		94C4D91C1C73AF61000D81AD /* keychainEditrUI */ = {
 			isa = PBXGroup;
 			children = (
+				CB3B784F1C7584C00059B5C8 /* Controller */,
+				CB3B784E1C7584BA0059B5C8 /* View */,
+				CB3B784C1C7584AB0059B5C8 /* Model */,
 				9493918A1C74CEEA00F84EEB /* keychain.swift */,
 				94C4D91D1C73AF62000D81AD /* AppDelegate.swift */,
-				94C4D91F1C73AF62000D81AD /* FilterToDumpVC.swift */,
-				94C4D9211C73AF62000D81AD /* Main.storyboard */,
-				CBD781471C7434930025BBF0 /* ListViewVC.swift */,
-				CBD781451C740DB80025BBF0 /* ListViewCell.swift */,
 				94C4D9241C73AF62000D81AD /* Assets.xcassets */,
 				94C4D9261C73AF62000D81AD /* LaunchScreen.storyboard */,
 				94C4D9291C73AF62000D81AD /* Info.plist */,
@@ -153,6 +154,32 @@
 			);
 			name = Frameworks;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		CB3B784C1C7584AB0059B5C8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CBD781451C740DB80025BBF0 /* ListViewCell.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		CB3B784E1C7584BA0059B5C8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB3B78491C7584A20059B5C8 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		CB3B784F1C7584C00059B5C8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				94C4D91F1C73AF62000D81AD /* FilterToDumpVC.swift */,
+				CBD781491C756D0B0025BBF0 /* DetailViewVC.swift */,
+				CBD781471C7434930025BBF0 /* ListViewVC.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,9 +292,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB3B784B1C7584A20059B5C8 /* Main.storyboard in Resources */,
 				94C4D9281C73AF62000D81AD /* LaunchScreen.storyboard in Resources */,
 				94C4D9251C73AF62000D81AD /* Assets.xcassets in Resources */,
-				94C4D9231C73AF62000D81AD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +323,7 @@
 				CBD781461C740DB80025BBF0 /* ListViewCell.swift in Sources */,
 				94C4D91E1C73AF62000D81AD /* AppDelegate.swift in Sources */,
 				CBD781481C7434930025BBF0 /* ListViewVC.swift in Sources */,
+				CBD7814A1C756D0B0025BBF0 /* DetailViewVC.swift in Sources */,
 				9493918B1C74CEEA00F84EEB /* keychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,20 +362,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		94C4D9211C73AF62000D81AD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				94C4D9221C73AF62000D81AD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		94C4D9261C73AF62000D81AD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				94C4D9271C73AF62000D81AD /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		CB3B78491C7584A20059B5C8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB3B784A1C7584A20059B5C8 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Security
 import keychainEditrUI
 
 class keychainTests: XCTestCase {
@@ -26,6 +27,14 @@ class keychainTests: XCTestCase {
     }
 
     func testAddItem() {
+        
+        // given
+        let retVal = keychainObj.addItem()
+        
+        //when
+        let checkVal: OSStatus! = errSecSuccess
+        
+        XCTAssertEqual(retVal.status, checkVal)
         
     }
 

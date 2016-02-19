@@ -226,58 +226,76 @@ public class Keychain: NSObject {
     }
     
     /*
-    Edit a keychain item.
-    Params -> (kSecClass=Genp, account, service, data, agroup=nil)
-    Return -> String.
+        Function for updating an existing keychain item.
+    
+        Params -> (kSecClass=Genp, account, service, data, agroup=nil)
+    
+        Return -> String.
     */
-    func editItem(items: String...) -> String {
+    func updateItem(secClass: String = kSecClassGenericPassword as String,
+                    account: String,
+                    service: String,
+                    data: String,
+                    agroup: String? = nil) -> (status: OSStatus, statusString: String) {
         
-        let secClass: String! = items[0]
-        let account: String!  = items[1]
-        let service: String!  = items[2]
-        let updatedData: NSData! = items[3].dataUsingEncoding(NSUTF8StringEncoding)
         
+        // The value of kSecValueData should be of type NSData.
+        let dataAsNSData: NSData! = data.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        // Build the query with optional kSecAttrAccessGroup.
         var query = [
             kSecClass as String         :   secClass,
             kSecAttrAccount as String   :   account,
             kSecAttrService as String   :   service
         ]
-        
-        if let agroup: String? = items[4] {
-            query[kSecAttrAccessGroup as String] = agroup
+                        
+        // If the agroup is set, then include it in the query.
+        if let unwrappedAGroup = agroup {
+            query[kSecAttrAccessGroup as String] = unwrappedAGroup
         }
         
         // Prepare second argument for SecItemUpdate()
-        let updatedValue = [kSecValueData as String : updatedData] as CFDictionaryRef
+        let dataToUpdate = [kSecValueData as String : dataAsNSData] as CFDictionaryRef
         
-        let status: OSStatus = SecItemUpdate(query as CFDictionaryRef, updatedValue)
+        let status: OSStatus = SecItemUpdate(query as CFDictionaryRef, dataToUpdate)
+                        
+        if (status != errSecSuccess) {
+            NSLog("[updateItem::SecItemUpdate] - \(osstatusToHumanReadable(status))")
+        }
         
-        return osstatusToHumanReadable(status)
+        return (status, osstatusToHumanReadable(status))
     }
     
     /*
-    Delete a keychain item.
+    Function for updating an existing keychain item.
+    
     Params -> (kSecClass=Genp, account, service, agroup=nil)
+    
     Return -> String.
     */
-    func deleteItem(items: String...) -> String {
+    func removeItem(secClass: String = kSecClassGenericPassword as String,
+        account: String,
+        service: String,
+        agroup: String? = nil) -> (status: OSStatus, statusString: String) {
+            
+            // Build the query with optional kSecAttrAccessGroup.
+            var query = [
+                kSecClass as String         :   secClass,
+                kSecAttrAccount as String   :   account,
+                kSecAttrService as String   :   service
+            ]
+            
+            // If the agroup is set, then include it in the query.
+            if let unwrappedAGroup = agroup {
+                query[kSecAttrAccessGroup as String] = unwrappedAGroup
+            }
         
-        let secClass: String! = items[0]
-        let account: String!  = items[1]
-        let service: String!  = items[2]
+            let status: OSStatus = SecItemDelete(query as CFDictionaryRef)
+            
+            if (status != errSecSuccess) {
+                NSLog("[removeItem::SecItemDelete] - \(osstatusToHumanReadable(status))")
+            }
         
-        var query = [
-            kSecClass as String         :   secClass,
-            kSecAttrAccount as String   :   account,
-            kSecAttrService as String   :   service
-        ]
-        
-        if let agroup: String? = items[3] {
-            query[kSecAttrAccessGroup as String] = agroup
-        }
-        
-        let status: OSStatus = SecItemDelete(query as CFDictionaryRef)
-        
-        return osstatusToHumanReadable(status)
+        return (status, osstatusToHumanReadable(status))
     }
 }

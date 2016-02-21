@@ -16,15 +16,15 @@ class DetailViewVC: UIViewController {
     @IBOutlet weak var protectionLvl: UILabel!
     @IBOutlet weak var keyChainedData: UILabel!
     
-    var dataSentFromListView: Dictionary<String, String>!
+    var dataSentFromListView: Dictionary<String, AnyObject>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewDidAppear(animated: Bool) {
-        if let acc = dataSentFromListView["accName"]{
-            self.account.text = acc
+        if let acc = dataSentFromListView[kSecAttrAccount as String]{
+            self.account.text = acc as! String
         }else{
             print("Nil value passed on!")
         }

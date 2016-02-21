@@ -19,7 +19,19 @@ class FilterToDumpVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    @IBAction func onDump(sender: AnyObject) {
+        performSegueWithIdentifier("dumpToList", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "dumpToList"){
+            let keyChain = Keychain()
+            let masterData = keyChain.fetchItemsAll()
+            let listVC = segue.destinationViewController as! ListViewVC
+            listVC.keyChainMasterData = masterData.items
+        }
+    }
 
 }
 

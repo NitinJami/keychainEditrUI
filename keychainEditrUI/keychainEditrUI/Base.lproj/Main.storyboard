@@ -41,7 +41,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Dump"/>
                                 <connections>
-                                    <segue destination="56C-Ul-UFg" kind="show" id="z54-s1-Ezq"/>
+                                    <action selector="onDump:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nxJ-ly-VSv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -71,6 +71,9 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="GW8-XP-gi6"/>
+                    <connections>
+                        <segue destination="56C-Ul-UFg" kind="show" identifier="dumpToList" id="R9e-tv-VsW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

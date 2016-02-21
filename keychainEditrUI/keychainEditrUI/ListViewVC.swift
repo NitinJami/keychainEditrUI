@@ -8,10 +8,12 @@
 
 import UIKit
 
+
 class ListViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    var dataSentToDetailVC: Dictionary<String, String>!
+    var dataSentToDetailVC: Dictionary<String, AnyObject>!
+    var keyChainMasterData = [Dictionary<String, AnyObject>]()
     var listOfDumpData = [["accName":"Yoda", "svcName":"Count duku"], ["accName":"Count Duku", "svcName":"Seorin"], ["accName":"Seorin", "svcName":"Obi Wan Kanonbe"], ["accName":"Obi Wan Kanobe", "svcName":"Luke Skywalker"]]
     
     override func viewDidLoad() {
@@ -20,13 +22,17 @@ class ListViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
     }
     
+    override func viewDidAppear(animated: Bool) {
+        let keyChain = Keychain()
+    }
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCellWithIdentifier("ListViewCellId") as? ListViewCell{
-            cell.configureListCell(listOfDumpData[indexPath.row])
+            cell.configureListCell(keyChainMasterData[indexPath.row])
             return cell
         }else{
             return ListViewCell()
@@ -34,11 +40,11 @@ class ListViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listOfDumpData.count
+        return keyChainMasterData.count
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.dataSentToDetailVC = listOfDumpData[indexPath.row]
+        self.dataSentToDetailVC = keyChainMasterData[indexPath.row]
         performSegueWithIdentifier("listToDetail", sender: self)
     }
     

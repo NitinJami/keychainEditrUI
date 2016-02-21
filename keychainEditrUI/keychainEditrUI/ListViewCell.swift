@@ -17,12 +17,12 @@ class ListViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func configureListCell(listContentsDict: Dictionary<String, String>){
-        if let accName = listContentsDict["accName"], svcName = listContentsDict["svcName"]{
-            accountName.text = accName
-            serviceName.text = svcName
+    func configureListCell(listContentsDict: Dictionary<String, AnyObject>){
+        if let accName = listContentsDict[kSecAttrAccount as String], svcName = listContentsDict[kSecAttrService as String]{
+            accountName.text = accName as! String
+            serviceName.text = svcName as! String
         }else{
-            print("Either accName or svcName keys not present while configuring list view cell")
+            print("Either kSecAttrAccount or kSecAttrService keys not present while configuring list view cell")
         }
         
     }

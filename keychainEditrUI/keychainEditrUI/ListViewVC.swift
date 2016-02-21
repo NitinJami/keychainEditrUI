@@ -37,17 +37,12 @@ class ListViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return listOfDumpData.count
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        /*let thisCellDict = listOfDumpData[indexPath.row]
-        let detailVC = DetailViewVC()
-        detailVC.dataSentFromListView = thisCellDict*/
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.dataSentToDetailVC = listOfDumpData[indexPath.row]
         performSegueWithIdentifier("listToDetail", sender: self)
-        print("Calling performSegue")
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        print("calling prepareForSegue")
         if (segue.identifier == "listToDetail"){
             let detailVC = segue.destinationViewController as! DetailViewVC
             detailVC.dataSentFromListView = dataSentToDetailVC

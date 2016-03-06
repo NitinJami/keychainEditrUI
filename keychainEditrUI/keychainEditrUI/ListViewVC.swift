@@ -12,20 +12,15 @@ import UIKit
 class ListViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    var dataSentToDetailVC: Dictionary<String, AnyObject>!
-    var keyChainMasterData = [Dictionary<String, AnyObject>]()
-    var listOfDumpData = [["accName":"Yoda", "svcName":"Count duku"], ["accName":"Count Duku", "svcName":"Seorin"], ["accName":"Seorin", "svcName":"Obi Wan Kanonbe"], ["accName":"Obi Wan Kanobe", "svcName":"Luke Skywalker"]]
+    var dataSentToDetailVC: Dictionary<String, String>!
+    var keyChainMasterData = [Dictionary<String, String>]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        let keyChain = Keychain()
-    }
-    
+        
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }

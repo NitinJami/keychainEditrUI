@@ -18,9 +18,9 @@ class ListViewCell: UITableViewCell {
     }
     
     func configureListCell(listContentsDict: Dictionary<String, AnyObject>){
-        if let accName = listContentsDict[kSecAttrAccount as String], svcName = listContentsDict[kSecAttrService as String]{
-            accountName.text = accName as! String
-            serviceName.text = svcName as! String
+        if let accName = listContentsDict["Account"], svcName = listContentsDict["Service"]{
+            accountName.text = accName as? String
+            serviceName.text = svcName as? String
         }else{
             print("Either kSecAttrAccount or kSecAttrService keys not present while configuring list view cell")
         }

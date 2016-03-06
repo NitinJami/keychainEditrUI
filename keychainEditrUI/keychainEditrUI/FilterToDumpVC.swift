@@ -9,27 +9,45 @@
 import UIKit
 
 class FilterToDumpVC: UIViewController {
+    
+    @IBOutlet weak var accNameField: UITextField!
+    @IBOutlet weak var svcNameField: UITextField!
+    var dataSentToListView: [Dictionary<String, String>]!
+    
+    @IBAction func onDump(sender: AnyObject) {
+        let keyChain = Keychain()
+        let masterData = keyChain.fetchItemsAll()
+        if (accNameField.text == "" && svcNameField.text == ""){
+            dataSentToListView = masterData.items
+        }else{
+            dataSentToListView = filterMasterData(["Account": accNameField.text!, "Service": svcNameField.text!], masterData: masterData.items)
+        }
+        performSegueWithIdentifier("dumpToList", sender: self)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+   
     
-    @IBAction func onDump(sender: AnyObject) {
-        performSegueWithIdentifier("dumpToList", sender: self)
+    func filterMasterData(keysDict: Dictionary<String, String>, masterData:[Dictionary<String, String>]) -> [Dictionary<String, String>]{
+        var filteredData = masterData
+        for (key, value) in keysDict{
+            if(value != ""){
+                filteredData = filteredData.filter {
+                    return $0[key]?.rangeOfString(value, options: .CaseInsensitiveSearch) != nil
+                }
+            }
+        }
+        return filteredData
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "dumpToList"){
-            let keyChain = Keychain()
-            let masterData = keyChain.fetchItemsAll()
             let listVC = segue.destinationViewController as! ListViewVC
-            listVC.keyChainMasterData = masterData.items
+            listVC.keyChainMasterData = dataSentToListView
         }
     }
 

@@ -72,6 +72,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="GW8-XP-gi6"/>
                     <connections>
+                        <outlet property="accNameField" destination="xVj-Z2-sby" id="cs7-Sn-uM6"/>
+                        <outlet property="svcNameField" destination="bvN-pF-sB0" id="NLr-Rb-NGz"/>
                         <segue destination="56C-Ul-UFg" kind="show" identifier="dumpToList" id="R9e-tv-VsW"/>
                     </connections>
                 </viewController>

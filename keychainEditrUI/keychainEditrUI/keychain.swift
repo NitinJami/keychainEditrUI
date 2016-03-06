@@ -192,6 +192,7 @@ public class Keychain: NSObject {
             dict["Protection"] = determineTypeAndReturnString(eachDict[kSecAttrAccessible as String])
             dict["Data"] = determineTypeAndReturnString(eachDict[kSecValueData as String])
             dict["User Presence"] = "nil" //determineTypeAndReturnString(eachDict[kSecAttrAccessControl as String])
+
             
             arrayOfDict.append(dict)
         }

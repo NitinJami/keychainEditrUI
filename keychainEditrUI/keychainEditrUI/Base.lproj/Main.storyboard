@@ -173,33 +173,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Account:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRr-pM-asr">
-                                <rect key="frame" x="36" y="96" width="74" height="21"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="cnU-Yf-h6f">
+                                <rect key="frame" x="20" y="84" width="560" height="496"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJs-HT-CC0">
-                                <rect key="frame" x="118" y="96" width="42" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" red="0.9333990660254543" green="0.95731084094912233" blue="0.96379813763232325" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" red="0.97131629829999999" green="0.96381146750000002" blue="0.97628630049999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.98969072164948457" green="0.97938144329896903" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="qRr-pM-asr" firstAttribute="leading" secondItem="rH2-Q4-CV5" secondAttribute="leadingMargin" constant="15" id="4Mp-Ll-wrs"/>
-                            <constraint firstItem="gJs-HT-CC0" firstAttribute="leading" secondItem="qRr-pM-asr" secondAttribute="trailing" constant="8" id="O4x-bc-3Ym"/>
-                            <constraint firstItem="qRr-pM-asr" firstAttribute="top" secondItem="b8j-eb-kjV" secondAttribute="bottom" constant="30" id="Zf1-C9-OID"/>
-                            <constraint firstItem="gJs-HT-CC0" firstAttribute="centerY" secondItem="qRr-pM-asr" secondAttribute="centerY" id="lch-uZ-PTH"/>
+                            <constraint firstItem="W3o-e4-4hy" firstAttribute="top" secondItem="cnU-Yf-h6f" secondAttribute="bottom" constant="20" id="Ytr-HA-pZ3"/>
+                            <constraint firstItem="cnU-Yf-h6f" firstAttribute="leading" secondItem="rH2-Q4-CV5" secondAttribute="leadingMargin" id="cuC-B2-LsF"/>
+                            <constraint firstItem="cnU-Yf-h6f" firstAttribute="top" secondItem="b8j-eb-kjV" secondAttribute="bottom" constant="20" id="dkX-bR-v0y"/>
+                            <constraint firstItem="cnU-Yf-h6f" firstAttribute="trailing" secondItem="rH2-Q4-CV5" secondAttribute="trailingMargin" id="mPU-AW-7px"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="account" destination="gJs-HT-CC0" id="fCz-Lp-Rrs"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hg1-34-yNl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

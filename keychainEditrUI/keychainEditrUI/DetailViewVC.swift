@@ -24,7 +24,7 @@ class DetailViewVC: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         if let acc = dataSentFromListView["Account"]{
-            self.account.text = acc as? String
+            
         }else{
             print("Nil value passed on!")
         }

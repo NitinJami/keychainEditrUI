@@ -10,23 +10,17 @@ import UIKit
 
 class DetailViewVC: UIViewController {
 
-    @IBOutlet weak var entitlementGrp: UILabel!
-    @IBOutlet weak var account: UILabel!
-    @IBOutlet weak var service: UILabel!
-    @IBOutlet weak var protectionLvl: UILabel!
-    @IBOutlet weak var keyChainedData: UILabel!
+    @IBOutlet weak var detailsTxtView: UITextView?
     
-    var dataSentFromListView: Dictionary<String, AnyObject>!
+    var dataSentFromListView: Dictionary<String, String>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewDidAppear(animated: Bool) {
-        if let acc = dataSentFromListView["Account"]{
-            
-        }else{
-            print("Nil value passed on!")
+        for (key, value) in dataSentFromListView{
+            detailsTxtView!.text! += "\(key): \(value) \n \n"
         }
     }
 

@@ -173,24 +173,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="cnU-Yf-h6f">
-                                <rect key="frame" x="20" y="84" width="560" height="496"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gFo-bQ-PO5">
+                                <rect key="frame" x="20" y="86" width="560" height="494"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.9333990660254543" green="0.95731084094912233" blue="0.96379813763232325" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" red="0.98969072164948457" green="0.97938144329896903" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.97131629829999999" green="0.96381146750000002" blue="0.97628630049999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="W3o-e4-4hy" firstAttribute="top" secondItem="cnU-Yf-h6f" secondAttribute="bottom" constant="20" id="Ytr-HA-pZ3"/>
-                            <constraint firstItem="cnU-Yf-h6f" firstAttribute="leading" secondItem="rH2-Q4-CV5" secondAttribute="leadingMargin" id="cuC-B2-LsF"/>
-                            <constraint firstItem="cnU-Yf-h6f" firstAttribute="top" secondItem="b8j-eb-kjV" secondAttribute="bottom" constant="20" id="dkX-bR-v0y"/>
-                            <constraint firstItem="cnU-Yf-h6f" firstAttribute="trailing" secondItem="rH2-Q4-CV5" secondAttribute="trailingMargin" id="mPU-AW-7px"/>
+                            <constraint firstItem="W3o-e4-4hy" firstAttribute="top" secondItem="gFo-bQ-PO5" secondAttribute="bottom" constant="20" id="9G8-Wz-hpL"/>
+                            <constraint firstItem="gFo-bQ-PO5" firstAttribute="top" secondItem="b8j-eb-kjV" secondAttribute="bottom" constant="20" id="L0Z-D6-6iL"/>
+                            <constraint firstItem="gFo-bQ-PO5" firstAttribute="leading" secondItem="rH2-Q4-CV5" secondAttribute="leadingMargin" id="UtR-zH-0TG"/>
+                            <constraint firstItem="gFo-bQ-PO5" firstAttribute="trailing" secondItem="rH2-Q4-CV5" secondAttribute="trailingMargin" id="tUh-y6-1em"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="detailsTxtView" destination="gFo-bQ-PO5" id="b51-X2-u4W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hg1-34-yNl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

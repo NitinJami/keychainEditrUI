@@ -220,8 +220,62 @@
                     <view key="view" contentMode="scaleToFill" id="rH2-Q4-CV5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1En-2x-Oak">
+                                <rect key="frame" x="20" y="96" width="560" height="496"/>
+                                <animations/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailViewCell" rowHeight="95" id="WaT-kH-r2D" customClass="DetailViewCell" customModule="keychainEditrUI" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="560" height="95"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WaT-kH-r2D" id="cy0-QJ-cTx">
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="94"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="KeyName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zU4-4c-ARi">
+                                                    <rect key="frame" x="8" y="8" width="89" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Value" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wod-0j-GEN">
+                                                    <rect key="frame" x="127" y="8" width="425" height="78"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                            <color key="backgroundColor" red="0.97131629829999999" green="0.96381146750000002" blue="0.97628630049999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="Wod-0j-GEN" firstAttribute="top" secondItem="cy0-QJ-cTx" secondAttribute="topMargin" id="1N9-DM-2Sa"/>
+                                                <constraint firstItem="zU4-4c-ARi" firstAttribute="top" secondItem="cy0-QJ-cTx" secondAttribute="topMargin" id="4lC-vU-I3e"/>
+                                                <constraint firstItem="Wod-0j-GEN" firstAttribute="leading" secondItem="zU4-4c-ARi" secondAttribute="trailing" constant="30" id="FKF-H1-bYa"/>
+                                                <constraint firstItem="zU4-4c-ARi" firstAttribute="leading" secondItem="cy0-QJ-cTx" secondAttribute="leadingMargin" id="tNs-8q-8EC"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <connections>
+                                            <outlet property="keyLbl" destination="zU4-4c-ARi" id="4DN-H6-9Ul"/>
+                                            <outlet property="valueLbl" destination="Wod-0j-GEN" id="Oha-3K-53u"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <animations/>
+                        <constraints>
+                            <constraint firstItem="W3o-e4-4hy" firstAttribute="top" secondItem="1En-2x-Oak" secondAttribute="bottom" constant="20" id="DII-Ew-OxB"/>
+                            <constraint firstItem="1En-2x-Oak" firstAttribute="top" secondItem="b8j-eb-kjV" secondAttribute="bottom" constant="20" id="XMg-NL-mRc"/>
+                            <constraint firstItem="1En-2x-Oak" firstAttribute="trailing" secondItem="rH2-Q4-CV5" secondAttribute="trailingMargin" id="m9n-hI-yyq"/>
+                            <constraint firstItem="1En-2x-Oak" firstAttribute="leading" secondItem="rH2-Q4-CV5" secondAttribute="leadingMargin" id="si8-bc-o4f"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="detailTableView" destination="1En-2x-Oak" id="mhC-qb-g9Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hg1-34-yNl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

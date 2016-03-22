@@ -12,7 +12,7 @@ import UIKit
 class ListViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    var dataSentToDetailVC: Dictionary<String, String>!
+    var dataSentToDetailVC: [Dictionary<String, String>]!
     var keyChainMasterData = [Dictionary<String, String>]()
     
     override func viewDidLoad() {
@@ -26,6 +26,8 @@ class ListViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        print("listView's cellForRowAtIndexPath called!!")
+
         if let cell = tableView.dequeueReusableCellWithIdentifier("ListViewCellId") as? ListViewCell{
             cell.configureListCell(keyChainMasterData[indexPath.row])
             return cell
@@ -39,7 +41,7 @@ class ListViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.dataSentToDetailVC = keyChainMasterData[indexPath.row]
+        self.dataSentToDetailVC = dictToDetailArray(keyChainMasterData[indexPath.row])
         performSegueWithIdentifier("listToDetail", sender: self)
     }
     
@@ -48,6 +50,16 @@ class ListViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let detailVC = segue.destinationViewController as! DetailViewVC
             detailVC.dataSentFromListView = dataSentToDetailVC
         }
+    }
+    
+    func dictToDetailArray(dataDict: Dictionary<String, String>) -> [Dictionary<String, String>]{
+        var dataArray = [Dictionary<String, String>]()
+        for dataKey in ORDER_OF_KEYS{
+            if let value = dataDict[dataKey]{
+                dataArray.append([dataKey: value])
+            }
+        }
+        return dataArray
     }
     
 

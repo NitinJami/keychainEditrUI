@@ -7,25 +7,36 @@
 //
 
 import UIKit
+let ORDER_OF_KEYS = [
+    "Account", "Service", "Access Group", "Protection", "Creation Time", "Modification Time", "Data", "User Preference"
+]
 
-class DetailViewVC: UIViewController {
+class DetailViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
-    @IBOutlet weak var detailsTxtView: UITextView?
-    
-    var dataSentFromListView: Dictionary<String, String>!
-    
+    var dataSentFromListView: [Dictionary<String, String>]!
+    @IBOutlet weak var detailTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        detailTableView.delegate = self
+        detailTableView.dataSource = self
     }
     
-    override func viewDidAppear(animated: Bool) {
-        for (key, value) in dataSentFromListView{
-            detailsTxtView!.text! += "\(key): \(value) \n \n"
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        print("detailView's cellForRowAtIndexPath called!!")
+        if let detailCell = detailTableView.dequeueReusableCellWithIdentifier("DetailViewCell") as? DetailViewCell{
+            detailCell.configureCell(dataSentFromListView[indexPath.row])
+            return detailCell
+        }else{
+            return DetailViewCell()
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataSentFromListView.count
     }
     
 

@@ -17,6 +17,18 @@ class DetailViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var detailTableView: UITableView!
     
     @IBAction func deleteThisItem(sender: AnyObject){
+        let deleteAlert = UIAlertController(
+            title: "Delete?", message: "Sure to delete item with Account: \(dataSentFromListView[0]["Account"]!)",
+            preferredStyle: UIAlertControllerStyle.Alert
+        )
+        deleteAlert.addAction(UIAlertAction(title: "Delete", style: .Default){(action: UIAlertAction!) in
+            let keyChain = Keychain()
+            keyChain.removeItem(account: self.dataSentFromListView[0]["Account"]!, service: self.dataSentFromListView[1]["Service"]!)
+            self.navigationController?.popViewControllerAnimated(true)
+        })
+        deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .Default){(action: UIAlertAction!) in self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+        })
+        presentViewController(deleteAlert, animated: true, completion: nil)
         
     }
     
@@ -31,7 +43,6 @@ class DetailViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        print("detailView's cellForRowAtIndexPath called!!")
         if let detailCell = detailTableView.dequeueReusableCellWithIdentifier("DetailViewCell") as? DetailViewCell{
             detailCell.configureCell(dataSentFromListView[indexPath.row])
             return detailCell

@@ -26,8 +26,6 @@ class ListViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        print("listView's cellForRowAtIndexPath called!!")
-
         if let cell = tableView.dequeueReusableCellWithIdentifier("ListViewCellId") as? ListViewCell{
             cell.configureListCell(keyChainMasterData[indexPath.row])
             return cell

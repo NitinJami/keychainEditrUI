@@ -15,6 +15,11 @@ class DetailViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource
 
     var dataSentFromListView: [Dictionary<String, String>]!
     @IBOutlet weak var detailTableView: UITableView!
+    
+    @IBAction func deleteThisItem(sender: AnyObject){
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         detailTableView.delegate = self

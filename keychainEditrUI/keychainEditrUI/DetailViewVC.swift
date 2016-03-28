@@ -24,7 +24,7 @@ class DetailViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         deleteAlert.addAction(UIAlertAction(title: "Delete", style: .Default){(action: UIAlertAction!) in
             let keyChain = Keychain()
             keyChain.removeItem(account: self.dataSentFromListView[0]["Account"]!, service: self.dataSentFromListView[1]["Service"]!)
-            self.navigationController?.popViewControllerAnimated(true)
+            self.navigationController?.popToRootViewControllerAnimated(true)
         })
         deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .Default){(action: UIAlertAction!) in self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
         })
@@ -32,7 +32,7 @@ class DetailViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
     }
     
-    override func viewDidLoad() {
+    override func viewDidLoad(){
         super.viewDidLoad()
         detailTableView.delegate = self
         detailTableView.dataSource = self
@@ -55,6 +55,7 @@ class DetailViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         return dataSentFromListView.count
     }
     
+    //func tableView
 
 
 }

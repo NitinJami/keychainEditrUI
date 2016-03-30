@@ -43,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		944F75341C94789F0066859D /* keychainEditrUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = keychainEditrUI.entitlements; sourceTree = "<group>"; };
 		9493918A1C74CEEA00F84EEB /* keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = keychain.swift; sourceTree = "<group>"; };
 		9493918C1C74E72700F84EEB /* keychainTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = keychainTests.swift; sourceTree = "<group>"; };
 		94C4D91A1C73AF61000D81AD /* keychainEditrUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = keychainEditrUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +115,7 @@
 		94C4D91C1C73AF61000D81AD /* keychainEditrUI */ = {
 			isa = PBXGroup;
 			children = (
+				944F75341C94789F0066859D /* keychainEditrUI.entitlements */,
 				CB3B784F1C7584C00059B5C8 /* Controller */,
 				CB3B784E1C7584BA0059B5C8 /* View */,
 				CB3B784C1C7584AB0059B5C8 /* Model */,
@@ -253,6 +255,9 @@
 						SystemCapabilities = {
 							com.apple.DataProtection = {
 								enabled = 0;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
 							};
 						};
 					};
@@ -468,6 +473,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = keychainEditrUI/keychainEditrUI.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
@@ -484,6 +490,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = keychainEditrUI/keychainEditrUI.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;

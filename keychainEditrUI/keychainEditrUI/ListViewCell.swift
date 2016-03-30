@@ -17,10 +17,10 @@ class ListViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func configureListCell(listContentsDict: Dictionary<String, AnyObject>){
+    func configureListCell(listContentsDict: Dictionary<String, String>){
         if let accName = listContentsDict["Account"], svcName = listContentsDict["Service"]{
-            accountName.text = accName as? String
-            serviceName.text = svcName as? String
+            accountName.text = accName
+            serviceName.text = svcName
         }else{
             print("Either kSecAttrAccount or kSecAttrService keys not present while configuring list view cell")
         }

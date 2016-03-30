@@ -19,6 +19,7 @@
 		94C4D93E1C73AF62000D81AD /* keychainEditrUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C4D93D1C73AF62000D81AD /* keychainEditrUIUITests.swift */; };
 		94C4D94C1C73AF86000D81AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C4D94B1C73AF86000D81AD /* Foundation.framework */; };
 		94C4D94E1C73AF8D000D81AD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C4D94D1C73AF8D000D81AD /* Security.framework */; };
+		CB3029F51C9E494C008F6B15 /* DetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3029F41C9E494C008F6B15 /* DetailViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		CB3B784B1C7584A20059B5C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB3B78491C7584A20059B5C8 /* Main.storyboard */; };
 		CBD781461C740DB80025BBF0 /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD781451C740DB80025BBF0 /* ListViewCell.swift */; };
 		CBD781481C7434930025BBF0 /* ListViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD781471C7434930025BBF0 /* ListViewVC.swift */; };
@@ -59,6 +60,7 @@
 		94C4D93F1C73AF62000D81AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94C4D94B1C73AF86000D81AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		94C4D94D1C73AF8D000D81AD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CB3029F41C9E494C008F6B15 /* DetailViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewCell.swift; path = ../DetailViewCell.swift; sourceTree = "<group>"; };
 		CB3B784A1C7584A20059B5C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CBD781451C740DB80025BBF0 /* ListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
 		CBD781471C7434930025BBF0 /* ListViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewVC.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 		CB3B784C1C7584AB0059B5C8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CB3029F41C9E494C008F6B15 /* DetailViewCell.swift */,
 				CBD781451C740DB80025BBF0 /* ListViewCell.swift */,
 			);
 			name = Model;
@@ -327,6 +330,7 @@
 			files = (
 				94C4D9201C73AF62000D81AD /* FilterToDumpVC.swift in Sources */,
 				CBD781461C740DB80025BBF0 /* ListViewCell.swift in Sources */,
+				CB3029F51C9E494C008F6B15 /* DetailViewCell.swift in Sources */,
 				94C4D91E1C73AF62000D81AD /* AppDelegate.swift in Sources */,
 				CBD781481C7434930025BBF0 /* ListViewVC.swift in Sources */,
 				CBD7814A1C756D0B0025BBF0 /* DetailViewVC.swift in Sources */,

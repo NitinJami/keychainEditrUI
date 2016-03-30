@@ -14,6 +14,11 @@ class FilterToDumpVC: UIViewController {
     @IBOutlet weak var svcNameField: UITextField!
     var dataSentToListView: [Dictionary<String, String>]!
     
+    @IBAction func addKeyChainItem(sender: AnyObject){
+        let keychain = Keychain()
+        keychain.addItem()
+    }
+    
     @IBAction func onDump(sender: AnyObject) {
         let keyChain = Keychain()
         let masterData = keyChain.fetchItemsAll()
